@@ -7,5 +7,85 @@
 </head>
 <body>
     <h1>hello</h1>
+    <p>## How a Software Product Team (e.g., Candy Crush) Uses Git and GitHub
+
+When a large team develops a game like Candy Crush, Git and GitHub enable effective collaboration, code management, and quality control across multiple teams (developers, artists, testers, etc.). Here’s how such a workflow typically looks:
+
+### **1. Central Repository Setup**
+
+- The team creates a central repository on GitHub. This serves as the "single source of truth" for the project[1][2][3][4].
+- All code, assets, and documentation are stored and versioned here.
+
+### **2. Cloning and Local Development**
+
+- Each team member or sub-team (e.g., UI, gameplay, backend) clones the repository to their local machine using:
+  ```bash
+  git clone https://github.com/OrgName/candy-crush.git
+  ```
+- Developers work on their own local copies, making changes and testing features independently[2][3].
+
+### **3. Branching Strategy**
+
+- Teams use a branching strategy to organize work and avoid conflicts[3][5][4][6]:
+  - **Main/master branch**: Always stable, production-ready code.
+  - **Develop branch**: Ongoing development, integrates features before release[5].
+  - **Feature branches**: Each new feature or bugfix is developed in its own branch (e.g., `feature/level-editor`, `bugfix/score-bug`).
+  - **Release branches**: Used for preparing a new game release.
+  - **Hotfix branches**: For urgent fixes to production code.
+
+  **Example commands:**
+  ```bash
+  git checkout -b feature/new-powerup
+  ```
+- This allows multiple teams to work in parallel without interfering with each other’s code[5][4][6].
+
+### **4. Daily Workflow**
+
+- Developers make changes, stage them (`git add .`), and commit with messages (`git commit -m "Add new power-up logic"`)[2].
+- Regularly, they pull the latest changes from the central repo to stay updated (`git pull`)[2].
+- When a feature is ready, they push their branch to GitHub (`git push origin feature/new-powerup`)[2].
+
+### **5. Collaboration, Code Review, and Pull Requests**
+
+- Developers open a **Pull Request (PR)** on GitHub to merge their branch into the main or develop branch.
+- Team leads and peers review the code, suggest changes, and approve or request fixes[1][2].
+- Automated checks (like build and test pipelines using GitHub Actions) run on every PR to ensure code quality and prevent bugs[2].
+
+### **6. Merging and Release**
+
+- Once approved, the PR is merged into the main/develop branch.
+- Release branches are created for final testing and deployment.
+- Hotfix branches are used for urgent issues in production and merged back into main and develop[5].
+
+### **7. Automation and Continuous Integration**
+
+- GitHub Actions automate tasks like building game binaries, running tests, processing assets, and deploying builds to testers or stores[2].
+- This ensures every change is validated and the game remains stable.
+
+### **8. Asset and Non-Code Collaboration**
+
+- Non-programming teams (artists, designers) may use Git LFS (Large File Storage) for big assets[2].
+- Documentation and design wikis can be maintained in the repo for shared access.
+
+## **Summary Table: Team Git Workflow for Game Development**
+
+| Step                       | What Happens                                           | Tools/Commands                     |
+|----------------------------|-------------------------------------------------------|------------------------------------|
+| Central Repo Setup         | Create main repo on GitHub                            | GitHub                             |
+| Clone & Local Dev          | Team clones repo, works locally                       | `git clone`                        |
+| Branching                  | Create feature, bugfix, release, hotfix branches      | `git checkout -b branch-name`      |
+| Daily Workflow             | Edit, stage, commit, pull, push                       | `git add`, `git commit`, `git pull`, `git push` |
+| Pull Requests & Review     | Submit PRs, review, run CI/CD                         | GitHub PRs, Actions                |
+| Merging & Release          | Merge branches, create releases, hotfixes             | GitHub, `git merge`                |
+| Automation                 | Build, test, deploy, asset processing                 | GitHub Actions, LFS                |
+
+## **Branching Model Recommendation**
+
+- **Git-Flow** is ideal for large, multi-team projects like games, as it provides clear structure for features, releases, and hotfixes[5][6].
+- **GitHub-Flow** is simpler and may suit smaller teams or open-source projects[5].
+
+**In summary:**  
+Using Git and GitHub, a game development team can coordinate work, review code, manage releases, and automate builds, ensuring a smooth and efficient workflow even with many contributors and complex requirements[2][3][5][4][6].
+</p>
 </body>
 </html>
